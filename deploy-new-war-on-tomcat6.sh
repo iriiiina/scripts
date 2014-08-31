@@ -1,6 +1,8 @@
 #!/bin/bash
-# Script downloads war file, undeploys old version of module and deploys downloaded version on Tomcat6
+
 # author: Irina Ivanova, iriiiina@gmail.com, 31.08.2014
+# Script wotks with Tomcat 6
+# Script downloads war file, undeploys old version of module and deploys downloaded version
 
 # NB! You need to make changes on further rows:
 # 50: username, password, URL and port of your Tomcat manager
@@ -95,7 +97,7 @@ fi
 # Set variables
 webapps="tomcat/webapps" # path to your webapps directory
 location="URL/$1-$2.war" # URL to your war file
-newWar="$1-$2.war"
+newWar="$1-$2.war" # should be the same as downloaded file
 module=$1
 
 echo -e "\n\t${CYAN}**********$module**********${NONE}"

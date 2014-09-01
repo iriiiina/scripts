@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # author: Irina Ivanova, iriiiina@gmail.com, 31.08.2014
-# Script wotks with Tomcat 6
+# Script works with Tomcat 6
 # Script downloads war file, undeploys old version of module and deploys downloaded version
 
 # NB! You need to make changes on further rows:
-# 50: username, password, URL and port of your Tomcat manager
-# 64: username, password, URL and port of your Tomcat manager
-# 96: path to your webapps directory
-# 97: URL to your war file
+# 87: path to the directory with logs
+# 111: path to your webapps directory
+# 112: username, password, URL and port of your Tomcat manager
+# 113: URL to your war file
 
 NONE='\033[00m'
 RED='\033[01;31m'
@@ -49,7 +49,7 @@ function downloadFile() {
 
 function undeployOldVersion() {
   echo -e "\n\tUndeploying old version of $module"
-  undeploy=$(curl "http://username:password@URL:port/manager/undeploy?path=/$module") # username, password, URL and port of your Tomcat manager
+  undeploy=$(curl "$tomcatManager/undeploy?path=/$module")
 
   if echo "$undeploy" | grep -q "OK - Undeployed application at context path"; then
     echo -e "\t${GREEN}OK: old version of $module is undeployed${NONE}"
@@ -63,7 +63,7 @@ function undeployOldVersion() {
 
 function deployNewVersion() {
   echo -e "\n\tDeploying new version $newWar ..."
-  deploy=$(curl --upload-file "$newWar" "http://username:password@URL:port/manager/deploy?path=/$module&update=true") # username, password, URL and port of your Tomcat manager
+  deploy=$(curl --upload-file "$newWar" "$tomcatManager/deploy?path=/$module&update=true")
 
   if echo "$deploy" | grep -q "OK - Deployed application at context path"; then
     echo -e "\t${GREEN}OK: $newWar is deployed${NONE}"
@@ -72,6 +72,19 @@ function deployNewVersion() {
   else
     echo $deploy
     echo -e "\t${RED}ERROR: can't deploy $newWar. See logs for details${NONE}"
+  fi
+}
+
+function checkIsRunning() {
+  echo -e "\n\t${CYAN}Checking is $newWar running...${NONE}"
+
+  isRunning=$(curl "$tomcatManager/list")
+
+  if echo "$isRunning" | grep -q "$module:running"; then
+    echo -e "\t${GREEN}OK: $newWar is running${NONE}"
+  else
+    echo -e "\t${RED}ERROR: $newWar can't run${NONE}"
+	echo -e "\t${RED}See logs: tomcat/logs/${NONE}" # path to the directory with logs
   fi
 }
 
@@ -96,6 +109,7 @@ fi
 
 # Set variables
 webapps="tomcat/webapps" # path to your webapps directory
+tomcatManager="http://username:password@URL:port/manager" # username, password, URL and port of your Tomcat manager
 location="URL/$1-$2.war" # URL to your war file
 newWar="$1-$2.war" # should be the same as downloaded file
 module=$1
@@ -109,6 +123,7 @@ downloadFile;
 if ! test -d "$webapps/$module" && ! test -e "$webapps/$module.war"; then
   echo -e "\n\t${YELLOW}WARNING: can't find previous deployed version of $module${NONE}"
   deployNewVersion;
+  checkIsRunning;
   exit
 else
   undeployOldVersion;
@@ -117,4 +132,5 @@ fi
 if [[ $isUndeployed -eq 1 ]]
 then
   deployNewVersion;
+  checkIsRunning;
 fi

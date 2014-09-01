@@ -19,7 +19,7 @@ CYAN='\033[01;36m'
 function removeExistingFile() {
   if test -e "$newWar"; then
     echo -e "\n\t${YELLOW}$newWar file already exists${NONE}"
-    echo -e "\tRemoving existing $newWar file..."
+    echo -e "\t${CYAN}Removing existing $newWar file...${NONE}"
 
     rm $newWar
 
@@ -33,7 +33,7 @@ function removeExistingFile() {
 }
 
 function downloadFile() {
-  echo -e "\n\tDownloading file $newWar..."
+  echo -e "\n\t${CYAN}Downloading file $newWar...${NONE}"
   wget $location
   exitCode=$?
   if [ $exitCode -ne 0 ]
@@ -48,7 +48,7 @@ function downloadFile() {
 }
 
 function undeployOldVersion() {
-  echo -e "\n\tUndeploying old version of $module"
+  echo -e "\n\t${CYAN}Undeploying old version of $module...${NONE}"
   undeploy=$(curl "$tomcatManager/undeploy?path=/$module")
 
   if echo "$undeploy" | grep -q "OK - Undeployed application at context path"; then
@@ -62,7 +62,7 @@ function undeployOldVersion() {
 }
 
 function deployNewVersion() {
-  echo -e "\n\tDeploying new version $newWar ..."
+  echo -e "\n\t${CYAN}Deploying new version $newWar...${NONE}"
   deploy=$(curl --upload-file "$newWar" "$tomcatManager/deploy?path=/$module&update=true")
 
   if echo "$deploy" | grep -q "OK - Deployed application at context path"; then
@@ -89,7 +89,7 @@ function checkIsRunning() {
 }
 
 function removeDownloadedFile() {
-  echo -e "\n\tRemoving downloaded file..."
+  echo -e "\n\t${CYAN}Removing downloaded file...${NONE}"
   rm $newWar
 
   if ! test -e "$newWar"; then

@@ -27,7 +27,7 @@ function verifyArguments() {
 }
 
 function findFile() {
-  find $path -iname "*$text*" | awk -v text="$text" -v lower="$lower" -v upper="$upper" '{ gsub(text, "\033[36m&\033[0m"); gsub(lower, "\033[36m&\033[0m"); gsub(upper, "\033[36m&\033[0m"); print }'
+  find $path -iname "*$text*" | awk -v text="$text" -v lower="$lower" -v upper="$upper" '{ gsub(text, "\033[36m&\033[0m"); gsub(lower, "\033[36m&\033[0m"); gsub(upper, "\033[36m&\033[0m"); gsub("Arhiiv", "\033[31m&\033[0m"); print }'
 }
 
 verifyArguments $#;

@@ -29,7 +29,7 @@ function verifyArguments() {
 }
 
 function findFiles() {
-  find $path -iname '*.doc' -exec grep -E "($text|$lower|$upper)" {} + | awk '{ gsub("Arhiiv", "\033[31m&\033[0m"); print }'
+  find $path -iname '*.doc' -exec grep -E "($text|$lower|$upper)" {} + | awk '{ gsub("Arhiiv", "\033[31m&\033[0m"); gsub(".[^/]*\.doc", "\033[36m&\033[0m"); print }'
 }
 
 verifyArguments $#;

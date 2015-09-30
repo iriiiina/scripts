@@ -1,15 +1,19 @@
 # Collection of Bash Scripts
 
 ## find-specification-by-name.sh
+    find-specification-by-name.sh [text_in_file_title]
 Finds file in specific directory by name.
 
 ## find-text-in-specification.sh
+    find-text-in-specification.sh [text_in_the_file_content]
 Finds files where given text is present.
 
 ## open-last-specification.sh
+    open-last-specification.sh [text_in_file_title]
 Finds file in specific directory by name and opens last modified version.
 
 ## get-errors-to-file.sh
+    get-errors-to-file.sh [path_to_log_file]
 Reads given log file and prints errors (or whatever is given to regular expression) to seperate file.
 
 ## nortal-logo.sh

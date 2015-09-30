@@ -1,5 +1,6 @@
 #!/bin/bash
 # Author: Irina.Ivanova@nortal.com
+# Prints picture of a bug
 # v0.1
 
 printf "                                 0       0\n"

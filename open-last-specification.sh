@@ -1,5 +1,6 @@
 #!/bin/bash
 # Author: Irina.Ivanova@nortal.com, 28.09.2015
+# Finds file in specific directory by name and opens last modified version
 # v1.0
 
 path="/Users/irina/Desktop/specs"

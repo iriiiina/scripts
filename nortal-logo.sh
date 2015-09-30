@@ -1,5 +1,6 @@
 #!/bin/bash
 # Author: Irina.Ivanova@nortal.com
+# Prints picture of Nortal (www.nortal.com) logo
 # v0.1
 
 GREEN='\e[32m'

@@ -1,5 +1,6 @@
 #!/bin/bash
 # Author: Irina.Ivanova@nortal.com, 24.09.2015
+# Reads given log file and prints errors (or whatever is given to regular expression) to seperate file
 # v0.1
 
 outputFile="log-errors.txt"

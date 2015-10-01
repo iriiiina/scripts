@@ -7,25 +7,25 @@ path="/Users/irina/Desktop/specs"
 
 text=$*
 
-NONE='\e[0m'
-RED='\e[31m'
-CYAN='\e[36m'
-YELLOW='\e[33m'
+NONE="\e[0m"
+RED="\e[31m"
+CYAN="\e[36m"
+YELLOW="\e[33m"
 
 function printError() {
-  printf "${RED}$1${NONE}\n"
+  printf "$RED$1$NONE\n"
 }
 
 function printInfo() {
-  printf "${CYAN}$1${NONE}\n"
+  printf "$CYAN$1$NONE\n"
 }
 
 function printWarning() {
-  printf "${YELLOW}$1${NONE}\n"
+  printf "$YELLOW$1$NONE\n"
 }
 
 function notificate() {
-  printf '\a'
+  printf "\a"
 }
 
 function verifyArguments() {
@@ -41,7 +41,7 @@ function findFile() {
 }
 
 function checkIsFileIsDoc() {
-  if [[ $file == *'.doc' ]]; then
+  if [[ $file == *".doc" ]]; then
     doc=1
   else
     doc=0
@@ -63,7 +63,7 @@ else
   printWarning "WARNING: Found file $file is not .DOC. Do you still want to open it? y/n";
   read open
 
-  if [[ $open == 'y' || $open == 'Y' || $open == 'yes' || $open == 'YES' ]]; then
+  if [[ $open == "y" || $open == "Y" || $open == "yes" || $open == "YES" ]]; then
     openFile;
   fi
 fi

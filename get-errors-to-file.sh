@@ -9,30 +9,30 @@ regexps="(.*ERROR.*|.*WARN.*)"
 
 inputFile=$1
 
-NONE='\e[0m'
-RED='\e[31m'
-YELLOW='\e[33m'
-CYAN='\e[36m'
-GREEN='\e[32m'
+NONE="\e[0m"
+RED="\e[31m"
+YELLOW="\e[33m"
+CYAN="\e[36m"
+GREEN="\e[32m"
 
 function printError() {
-  printf "${RED}$1${NONE}\n"
+  printf "$RED$1$NONE\n"
 }
 
 function printWarning() {
-  printf "${YELLOW}$1${NONE}\n"
+  printf "$YELLOW$1$NONE\n"
 }
 
 function printInfo() {
-  printf "${CYAN}$1${NONE}\n"
+  printf "$CYAN$1$NONE\n"
 }
 
 function printOk() {
-  printf "${GREEN}$1${NONE}\n"
+  printf "$GREEN$1$NONE\n"
 }
 
 function notificate() {
-  printf '\a'
+  printf "\a"
 }
 
 function verifyArguments() {

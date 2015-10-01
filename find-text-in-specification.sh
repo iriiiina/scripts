@@ -6,18 +6,18 @@
 path="/Users/irina/Desktop/specs"
 
 text=$*
-lower=$(echo $text | tr '[:upper:]' '[:lower:]')
-upper=$(echo $text | tr '[:lower:]' '[:upper:]')
+lower=$(echo $text | tr "[:upper:]" "[:lower:]")
+upper=$(echo $text | tr "[:lower:]" "[:upper:]")
 
-NONE='\e[0m'
-RED='\e[31m'
+NONE="\e[0m"
+RED="\e[31m"
 
 function printError() {
-  printf "${RED}$1${NONE}\n"
+  printf "$RED$1$NONE\n"
 }
 
 function notificate() {
-  printf '\a'
+  printf "\a"
 }
 
 function verifyArguments() {
@@ -29,7 +29,7 @@ function verifyArguments() {
 }
 
 function findFiles() {
-  find $path -iname '*.doc' -exec grep -E "($text|$lower|$upper)" {} + | awk '{ gsub("Arhiiv", "\033[31m&\033[0m"); gsub(".[^/]*\.doc", "\033[36m&\033[0m"); print }'
+  find $path -iname "*.doc" -exec grep -E "($text|$lower|$upper)" {} + | awk '{ gsub("Arhiiv", "\033[31m&\033[0m"); gsub(".[^/]*\.doc", "\033[36m&\033[0m"); print }'
 }
 
 verifyArguments $#;

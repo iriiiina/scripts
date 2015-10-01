@@ -5,18 +5,18 @@
 
 path="/Users/irina/Desktop/specs"
 text=$*
-lower=$(echo $text | tr '[:upper:]' '[:lower:]')
-upper=$(echo $text | tr '[:lower:]' '[:upper:]')
+lower=$(echo $text | tr "[:upper:]" "[:lower:]")
+upper=$(echo $text | tr "[:lower:]" "[:upper:]")
 
-NONE='\e[0m'
-RED='\e[31m'
+NONE="\e[0m"
+RED="\e[31m"
 
 function printError() {
-  printf "${RED}$1${NONE}\n"
+  printf "$RED$1$NONE\n"
 }
 
 function notificate() {
-  printf '\a'
+  printf "\a"
 }
 
 function verifyArguments() {

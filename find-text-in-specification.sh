@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Irina.Ivanova@nortal.com, 28.09.2015
 # Finds files where given text is present
-# v1.0
+# v1.1
 
 path="/Users/irina/Desktop/specs"
 
@@ -29,7 +29,7 @@ function verifyArguments() {
 }
 
 function findFiles() {
-  find $path -iname "*.doc" -exec grep -E "($text|$lower|$upper)" {} + | awk '{ gsub("Arhiiv", "\033[31m&\033[0m"); gsub(".[^/]*\.doc", "\033[36m&\033[0m"); print }'
+  find $path -iname "*.doc" -exec grep -E "($text|$lower|$upper)" {} + | awk '{ gsub("Arhiiv", "\033[31m&\033[0m"); gsub("Archive", "\033[31m&\033[0m"); gsub(".[^/]*\.doc", "\033[36m&\033[0m"); print }'
 }
 
 verifyArguments $#;

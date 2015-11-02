@@ -22,7 +22,7 @@ Prints picture of Nortal logo.
 ## bug.sh
 Prints picture of a bug.
 
-## Scripts for Updats on Tomcat 6
+## Scripts for Updates on Tomcat 6
 * deploy-many-wars-from-file-on-tomcat6.sh
 * deploy-new-war-on-tomcat6.sh
 * functions-for-deploying-on-tomcat6.sh.sh

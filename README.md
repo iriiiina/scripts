@@ -16,6 +16,10 @@ Finds file in specific directory by name and opens last modified version.
     get-errors-to-file.sh [path_to_log_file]
 Reads given log file and prints errors (or whatever is given to regular expression) to seperate file.
 
+## open-apps-for-work.sh
+    open-apps-for-work.sh
+Opens all applications that are required for my daily work. As I don't use computer only for work, I don't want to open them on every startup.
+
 ## nortal-logo.sh
 Prints picture of Nortal logo.
 

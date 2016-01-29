@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Open all applications needed for work
 # Irina Ivanova, iriiiina@gmail.com
+# Open all applications needed for work
 # v0.1, 29.01.2016
 
 path="/Applications"

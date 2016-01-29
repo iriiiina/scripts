@@ -2,15 +2,15 @@
 
 ## find-specification-by-name.sh
     ./find-specification-by-name.sh [text_in_file_title]
-Finds file in specific directory by name.
+Finds file in specific directory by name. See blog post about it: [Bash Scripts for Working With Documentation](http://ivanova-irina.blogspot.com.ee/2015/09/bash-scripts-for-working-with.html)
 
 ## find-text-in-specification.sh
     ./find-text-in-specification.sh [text_in_the_file_content]
-Finds files where given text is present.
+Finds files where given text is present. See blog post about it: [Bash Scripts for Working With Documentation](http://ivanova-irina.blogspot.com.ee/2015/09/bash-scripts-for-working-with.html)
 
 ## open-last-specification.sh
     ./open-last-specification.sh [text_in_file_title]
-Finds file in specific directory by name and opens last modified version.
+Finds file in specific directory by name and opens last modified version. See blog post about it: [Bash Scripts for Working With Documentation](http://ivanova-irina.blogspot.com.ee/2015/09/bash-scripts-for-working-with.html)
 
 ## get-errors-to-file.sh
     ./get-errors-to-file.sh [path_to_log_file]
@@ -22,12 +22,11 @@ Opens all applications that are required for my daily work. As I don't use compu
 
 ## nortal-logo.sh
     ./nortal-logo.sh
-Prints picture of Nortal logo.
+Prints picture of Nortal logo. See blog post about it: [Bash Scripts for Working With Documentation](http://ivanova-irina.blogspot.com.ee/2015/09/bash-scripts-for-working-with.html)
 
 ## bug.sh
     ./bug.sh
-Prints picture of a bug.
-
+Prints picture of a bug. See blog post about it: [Bash Scripts for Working With Documentation](http://ivanova-irina.blogspot.com.ee/2015/09/bash-scripts-for-working-with.html)
 ## Scripts for Updates on Tomcat 6
     ./deploy-many-wars-from-file-on-tomcat6.sh
     ./deploy-new-war-on-tomcat6.sh

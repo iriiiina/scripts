@@ -2,3 +2,4 @@
 open-ehealth-wadl-file.sh
 copy-file-from-server.sh
 copy-file-to-server.sh
+notify-about-support-issue.sh

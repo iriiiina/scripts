@@ -28,7 +28,7 @@ Sends e-mail when JIRA JQL query returns some result.
 
 ## rename-log-files.sh
     ./rename-log-files.sh
-Rename log files: module.log.01.12.2015 -> module.log.2015.12.01. It was used to change format of the date from dd.MM.yyyy to yyy.MM.dd to fix file sorting by name.
+Rename log files: module.log.01.12.2015 -> module.log.2015.12.01. It was used to change format of the date from dd.MM.yyyy to yyyy.MM.dd to fix file sorting by name.
 
 ## nortal-logo.sh
     ./nortal-logo.sh

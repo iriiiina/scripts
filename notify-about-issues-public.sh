@@ -24,7 +24,7 @@ now=$(date +"%d.%m.%Y %H:%M:%S")
 
 function getAllIssues() {
   printf "\n$now INFO: Getting all issues...\n"
-  issues=$( curl -D- -u $user:$password -H "Content-Type: application/json" "$jiraUrl$restParameter$filter" )
+  issues+=$( curl -D- -u $user:$password -H "Content-Type: application/json" "$jiraUrl$restParameter$filter" )
 
   http200=$( echo $issues | grep "HTTP\/1\.1 200 OK" )
   if [[ $http200 = "" ]]; then
@@ -38,7 +38,7 @@ function getAllIssues() {
 function getNewIssues() {
   printf "\n$now INFO: Getting new issues...\n"
   if [[ $error = "" ]]; then
-    newIssues+=$( echo $issues | grep -o --regexp="\"key\":\"[A-Z]*-[0-9]*\"," | grep -o --regexp="[A-Z]*\-[0-9]*" )
+    newIssues+=$( echo $issues | grep -o --regexp="\"key\":\"[[:upper:]]\*-[0-9]\*\"," | grep -o --regexp="[[:upper:]]\*\-[0-9]\*" )
   fi
   printf "$now OK: Got new issues: $newIssues\n"
 }

@@ -23,8 +23,12 @@ Reads given log file and prints errors (or whatever is given to regular expressi
 Opens all applications that are required for my daily work. As I don't use computer only for work, I don't want to open them on every startup.
 
 ## notify-about-issues-public.sh
-		./notify-about-issues-public.sh
+    ./notify-about-issues-public.sh
 Sends e-mail when JIRA JQL query returns some result.
+
+## rename-log-files.sh
+    ./rename-log-files.sh
+Rename log files: module.log.01.12.2015 -> module.log.2015.12.01. It was used to change format of the date from dd.MM.yyyy to yyy.MM.dd to fix file sorting by name.
 
 ## nortal-logo.sh
     ./nortal-logo.sh

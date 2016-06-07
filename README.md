@@ -22,6 +22,10 @@ Reads given log file and prints errors (or whatever is given to regular expressi
     ./open-apps-for-work.sh
 Opens all applications that are required for my daily work. As I don't use computer only for work, I don't want to open them on every startup.
 
+## notify-about-issues-public.sh
+		./notify-about-issues-public.sh
+Sends e-mail when JIRA JQL query returns some result.
+
 ## nortal-logo.sh
     ./nortal-logo.sh
 Prints picture of Nortal logo. See blog post about it: [Bash Scripts for Working With Documentation](http://ivanova-irina.blogspot.com.ee/2015/09/bash-scripts-for-working-with.html)

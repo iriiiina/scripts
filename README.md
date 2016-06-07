@@ -24,7 +24,7 @@ Opens all applications that are required for my daily work. As I don't use compu
 
 ## notify-about-issues-public.sh
     ./notify-about-issues-public.sh
-Sends e-mail when JIRA JQL query returns some result.
+Sends e-mail when JIRA JQL query returns some result. See blog post about it: [Script for Sending E-mails About Certain JIRA Issues](http://ivanova-irina.blogspot.com.ee/2016/06/script-for-sending-e-mails-about.html)
 
 ## rename-log-files.sh
     ./rename-log-files.sh

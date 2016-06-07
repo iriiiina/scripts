@@ -8,7 +8,7 @@ jiraUrl="https://jira.example.com"
 restParameter="/rest/api/latest/search?jql="
 issueParameter="/browse"
 filterParameter="/issues/?jql="
-# Use URL decoder for escaping special characters, for example, http://meyerweb.com/eric/tools/dencoder
+# Use URL encoder for escaping special characters, for example, http://meyerweb.com/eric/tools/dencoder
 ### For the following JQL query: project in ("Project1", "Project2") AND status = Open
 ### you should put into $filter variable something like this: "project%20in%20(%22Project1%22%2C%20%22Project2%22)%20AND%20status%20%3D%20Open"
 filter=""
@@ -18,7 +18,7 @@ password="" # JIRA password for Basic authentication (you can ask it from the us
 # Email
 to="" # Where email should be sent
 from="" # From whom email should be sent (it can be the same as $to value)
-subject="Your JQL query gives a new issue" # Subject of the email
+subject="Your JQL query returns a new issue" # Subject of the email
 
 now=$(date +"%d.%m.%Y %H:%M:%S")
 
@@ -55,6 +55,7 @@ function setEmailContent() {
     content+=$( echo "$jiraUrl$filterParameter$filter" )
   else
     content="$error"
+    subject="ERROR: Your JQL query returns a new issue"
   fi
   printf "$now OK: Content of the email is generated: \n"
   echo "$content"
@@ -75,7 +76,7 @@ EOF
   fi
 }
 
-printf "\n\n******Checking for new support issues******\n\n"
+printf "\n\n******Checking for new issues******\n\n"
 
 getAllIssues;
 getNewIssues;

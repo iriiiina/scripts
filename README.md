@@ -1,6 +1,6 @@
 # Collection of Bash Scripts for Mac OS
 
-All scripts work on Mac OS El Capitan 10.11.3 (and most likely in UNIX terminals).
+All scripts work on Mac OS El Capitan 10.11.5 (and most likely in UNIX terminals).
 
 ## find-specification-by-name.sh
     ./find-specification-by-name.sh [text_in_file_title]

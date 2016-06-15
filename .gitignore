@@ -1,6 +1,2 @@
 .DS_Store
-private/open-ehealth-wadl-file.sh
-private/copy-file-from-server.sh
-private/copy-file-to-server.sh
-private/notify-about-support-issue.sh
 private/*

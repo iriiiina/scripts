@@ -31,6 +31,7 @@ function verifyArguments() {
   fi
 }
 
+// Set your own servers and their shortnames here
 function setHost() {
   case $server in
     "short-name")  host="username@host"

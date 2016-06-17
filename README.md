@@ -8,11 +8,11 @@ Prints picture of a bug. See blog post about it: [Bash Scripts for Working With 
 
 ## copy-file-from-server.sh
     ./copy-file-from-server.sh
-Copy file from server to local computer. Servers can be mapped with short titles, so there is no need to remember host path.
+Copy file from server to local computer. Servers can be mapped with short titles, so there is no need to remember host path. See blog post about it: [Bash Scripts for Transfering Files Between Server and Local Computer](http://ivanova-irina.blogspot.com.ee/2016/06/bash-scripts-for-transfering-files.html)
 
 ## copy-file-to-server.sh
     ./copy-file-to-server.sh
-Copy file from local computer to server. Servers can be mapped with short titles, so there is no need to remember host path.
+Copy file from local computer to server. Servers can be mapped with short titles, so there is no need to remember host path. See blog post about it: [Bash Scripts for Transfering Files Between Server and Local Computer](http://ivanova-irina.blogspot.com.ee/2016/06/bash-scripts-for-transfering-files.html)
 
 ## find-specification-by-name.sh
     ./find-specification-by-name.sh [text_in_file_title]

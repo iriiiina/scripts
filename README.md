@@ -44,7 +44,7 @@ Finds file in specific directory by name and opens last modified version. See bl
 
 ## rename-log-files.sh
     ./rename-log-files.sh
-Rename log files: module.log.01.12.2015 -> module.log.2015.12.01. It was used to change format of the date from dd.MM.yyyy to yyyy.MM.dd to fix file sorting by name.
+Rename log files: module.log.31.12.2015 -> module.log.2015.12.31. It was used to change format of the date from dd.MM.yyyy to yyyy.MM.dd to fix file sorting by name.
 
 ## Scripts for Updates on Tomcat 6
     ./deploy-many-wars-from-file-on-tomcat6.sh

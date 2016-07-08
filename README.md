@@ -51,4 +51,4 @@ Rename log files: module.log.31.12.2015 -> module.log.2015.12.31. It was used to
     ./deploy-new-war-on-tomcat6.sh
     functions-for-deploying-on-tomcat6.sh.sh
 
-Blog post about these scripts: [Scripting fot Automated Update (Tomcat 6)](http://ivanova-irina.blogspot.com.ee/2014/09/scripting-for-automated-update-tomcat-6.html)
+Blog post about these scripts: [Scripting For Automated Update (Tomcat 6) [DEPRECATED]](http://ivanova-irina.blogspot.com.ee/2014/09/scripting-for-automated-update-tomcat-6.html)

@@ -18,11 +18,11 @@ tomcatManager="" # required global variable; Tomcat manager URL with user and pa
 # Example of current regexp that shows deployments in the following pattern:
 #    /admin:running:0:admin##1.2.3.4
 # Colors:
-# \033[31m - RED
-# \033[32m - GREEN
-# \033[33m - YELLOW
-# \033[34m - BLUE
-# \033[36m - CYAN
+#    \033[31m - RED
+#    \033[32m - GREEN
+#    \033[33m - YELLOW
+#    \033[34m - BLUE
+#    \033[36m - CYAN
 curl -silent $tomcatManager/list | sort | grep ^/ | awk '{ gsub("running", "\033[32m&\033[0m");
                                                            gsub("stopped", "\033[31m&\033[0m");
                                                            gsub("\\:[0-9]+", "\033[34m&\033[0m");

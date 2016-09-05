@@ -50,6 +50,10 @@ Rename log files: module.log.31.12.2015 -> module.log.2015.12.31. It was used to
     ./show-status-of-applications-tomcat.sh
 List deployed applications on Tomcat 8 web-server.
 
+## show-status-of-prod-applications-tomcat.sh
+    ./show-status-of-prod-applications-tomcat.sh
+List deployed applications on multiple-server and multiple-cluster environment (Tomcat 8).
+
 ## Scripts for Updates on Tomcat 6
     ./deploy-many-wars-from-file-on-tomcat6.sh
     ./deploy-new-war-on-tomcat6.sh

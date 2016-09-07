@@ -48,11 +48,11 @@ Rename log files: module.log.31.12.2015 -> module.log.2015.12.31. It was used to
 
 ## show-status-of-applications-tomcat.sh
     ./show-status-of-applications-tomcat.sh
-List deployed applications on Tomcat 8 web-server.
+List deployed applications on Tomcat 8 web-server. See blog post about it: [Checking Deployments on Tomcat Server Without Web Manager](http://ivanova-irina.blogspot.com.ee/2016/09/checking-deployments-on-tomcat-server.html)
 
 ## show-status-of-prod-applications-tomcat.sh
     ./show-status-of-prod-applications-tomcat.sh
-List deployed applications on multiple-server and multiple-cluster environment (Tomcat 8).
+List deployed applications on multiple-server and multiple-cluster environment (Tomcat 8). See blog post about it: [Checking Deployments on Tomcat Server Without Web Manager](http://ivanova-irina.blogspot.com.ee/2016/09/checking-deployments-on-tomcat-server.html)
 
 ## Scripts for Updates on Tomcat 6
     ./deploy-many-wars-from-file-on-tomcat6.sh

@@ -6,6 +6,10 @@ All scripts work on Mac OS El Capitan 10.11.5 (and most likely in UNIX terminals
     ./bug.sh
 Prints picture of a bug. See blog post about it: [Bash Scripts for Working With Documentation](http://ivanova-irina.blogspot.com.ee/2015/09/bash-scripts-for-working-with.html)
 
+## connect-to-oracle-db.sh
+    ./connect-to-oracle-db.sh
+Opens connection to some Oracle DB in command line using SQLPlus. Different data bases and their credentials can be mapped with short titles, so there is no need to remember all passwords and hosts.
+
 ## copy-file-from-server.sh
     ./copy-file-from-server.sh
 Copy file from server to local computer. Servers can be mapped with short titles, so there is no need to remember host path. See blog post about it: [Bash Scripts for Transfering Files Between Server and Local Computer](http://ivanova-irina.blogspot.com.ee/2016/06/bash-scripts-for-transfering-files.html)

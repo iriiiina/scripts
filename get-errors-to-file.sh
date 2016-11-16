@@ -31,7 +31,7 @@ function printOk() {
   printf "$GREEN$1$NONE\n"
 }
 
-function notificate() {
+function notify() {
   printf "\a"
 }
 
@@ -39,7 +39,7 @@ function verifyArguments() {
   if [[ $1 -ne 1 ]]; then
     printError "\n\tUsage: $0 LOG_FILE";
     printError "\tExample: $0 catalina.out\n";
-    notificate;
+    notify;
     exit
   fi
 }
@@ -60,4 +60,4 @@ verifyArguments $#;
 clearFile;
 getContent;
 
-notificate;
+notify;

@@ -15,14 +15,14 @@ function printError() {
   printf "$RED$1$NONE\n"
 }
 
-function notificate() {
+function notify() {
   printf "\a"
 }
 
 function verifyArguments() {
   if [ $1 -lt 1 ]; then
     printError "Usage: $0 ARGUMENT_1 ARGUMENT_2 ...";
-    notificate;
+    notify;
     exit
   fi
 }
@@ -34,4 +34,4 @@ function findFile() {
 verifyArguments $#;
 findFile;
 
-notificate;
+notify;

@@ -57,10 +57,3 @@ List deployed applications on Tomcat 8 web-server. See blog post about it: [Chec
 ## show-status-of-prod-applications-tomcat.sh
     ./show-status-of-prod-applications-tomcat.sh
 List deployed applications on multiple-server and multiple-cluster environment (Tomcat 8). See blog post about it: [Checking Deployments on Tomcat Server Without Web Manager](http://ivanova-irina.blogspot.com.ee/2016/09/checking-deployments-on-tomcat-server.html)
-
-## Scripts for Updates on Tomcat 6
-    ./deploy-many-wars-from-file-on-tomcat6.sh
-    ./deploy-new-war-on-tomcat6.sh
-    functions-for-deploying-on-tomcat6.sh.sh
-
-Blog post about these scripts: [Scripting For Automated Update (Tomcat 6) [DEPRECATED]](http://ivanova-irina.blogspot.com.ee/2014/09/scripting-for-automated-update-tomcat-6.html)

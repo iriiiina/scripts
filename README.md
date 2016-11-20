@@ -8,7 +8,7 @@ Prints picture of a bug. See blog post about it: [Bash Scripts for Working With 
 
 ## connect-to-oracle-db.sh
     ./connect-to-oracle-db.sh
-Opens connection to some Oracle DB in command line using SQLPlus. Different data bases and their credentials can be mapped with short titles, so there is no need to remember all passwords and hosts.
+Opens connection to some Oracle DB in command line using SQLPlus. Different data bases and their credentials can be mapped with short titles, so there is no need to remember all passwords and hosts. See blog post about it: [Use Oracle Data Base in Command Line](http://ivanova-irina.blogspot.com.ee/2016/11/use-oracle-data-base-in-command-line.html)
 
 ## copy-file-from-server.sh
     ./copy-file-from-server.sh

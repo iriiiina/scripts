@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author: Irina.Ivanova@nortal.com, 16.11.2016
+# Author: Irina.Ivanova@protonmail.com, 16.11.2016
 # Open connection to some Oracle DB
 # v1.0
 

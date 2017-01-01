@@ -4,7 +4,7 @@
 ### This is script for listing deployed applications on multiple-server and multiple-cluster environment (Tomcat 8)  ###
 ### You may want to add some changes here, all possible modifications are mentioned in the comments                  ###
 ###                                                                                                                  ###
-### Author: Irina Ivanova, iriiiina@gmail.com                                                                        ###
+### Author: Irina Ivanova, Irina.Ivanova@protonmail.com                                                              ###
 ### Last modified: 5.09.2016, v2.0                                                                                   ###
 ########################################################################################################################
 

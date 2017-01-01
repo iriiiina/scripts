@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# author: Irina Ivanova, iriiiina@gmail.com, 8.10.2014
+# author: Irina Ivanova, Irina.Ivanova@protonmail.com, 8.10.2014
 # Script works with Tomcat 6
 # Script takes module and version number from a file, downloads the war file, undeploys old version, deploys new version and continue with next module and version in the file.
 # Example of rows in the file:

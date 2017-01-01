@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author: Irina Ivanova, iriiiina@gmail.com, 02.06.2016
+# Author: Irina Ivanova, Irina.Ivanova@protonmail.com, 02.06.2016
 # Send e-mail when JIRA JQL query returns some result
 # v0.1
 

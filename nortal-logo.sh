@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author: Irina.Ivanova@nortal.com
+# Author: Irina.Ivanova@protonmail.com
 # Prints picture of Nortal (www.nortal.com) logo
 # v0.1
 

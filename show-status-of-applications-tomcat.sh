@@ -4,7 +4,7 @@
 ### This is script for listing deployed applications on Tomcat 8 server  ###
 ### It doesn't require modifications and can be used out-of-the-box      ###
 ###                                                                      ###
-### Author: Irina Ivanova, iriiiina@gmail.com                            ###
+### Author: Irina Ivanova, Irina.Ivanova@protonmail.com                  ###
 ### Last modified: 5.09.2016, v2.0                                       ###
 ############################################################################
 

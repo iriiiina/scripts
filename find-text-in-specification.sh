@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author: Irina.Ivanova@nortal.com, 28.09.2015
+# Author: Irina.Ivanova@protonmail.com, 28.09.2015
 # Finds files where given text is present
 # v1.1
 

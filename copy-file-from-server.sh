@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author: Irina Ivanova, iriiiina@gmail.com, 26.01.2016
+# Author: Irina Ivanova, Irina.Ivanova@protonmail.com, 26.01.2016
 # Copy file from server to local computer
 # v1.1
 

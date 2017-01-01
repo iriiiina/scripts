@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author: Irina.Ivanova@nortal.com
+# Author: Irina.Ivanova@protonmail.com
 # Prints picture of a bug
 # v0.1
 

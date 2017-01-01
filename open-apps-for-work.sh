@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Irina Ivanova, iriiiina@gmail.com
+# Irina Ivanova, Irina.Ivanova@protonmail.com
 # Open all applications needed for work
 # v0.1, 29.01.2016
 

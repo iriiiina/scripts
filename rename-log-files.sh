@@ -4,7 +4,7 @@
 ### Script should be located in the same directory as log files, that need to be renamed.
 ### It was used to change format of the date from dd.MM.yyyy to yyyy.MM.dd to fix file sorting by name.
 ###
-### Author: Irina Ivanova, iriiiina@gmail.com, 24.05.2016
+### Author: Irina Ivanova, Irina.Ivanova@protonmail.com, 24.05.2016
 
 for f in *.log.*; do
   module=$( echo "$f" | cut -d "." -f1 )

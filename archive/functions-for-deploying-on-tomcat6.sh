@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# author: Irina Ivanova, iriiiina@gmail.com, 8.10.2014
+# author: Irina Ivanova, Irina.Ivanova@protonmail.com, 8.10.2014
 # Script works with Tomcat 6
 # File contains functions for scripts deploy-new-war-on-tomcat6 and deploy-many-wars-from-file-on-tomcat6
 

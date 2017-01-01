@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# Author: Irina.Ivanova@protonmail.com, 31.12.2016
+# v1.0
 
 import requests
 import json

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# author: Irina Ivanova, iriiiina@gmail.com, 8.10.2014
+# author: Irina Ivanova, Irina.Ivanova@protonmail.com, 8.10.2014
 # Script works with Tomcat 6
 # Script downloads war file, undeploys old version of module and deploys downloaded version
 

@@ -30,6 +30,10 @@ Finds files where given text is present. See blog post about it: [Bash Scripts f
     ./get-errors-to-file.sh [path_to_log_file]
 Reads given log file and prints errors (or whatever is given to regular expression) to separate file.
 
+## get-top-colleague-from-jira.py 
+    python get-top-colleague-from-jira.py
+Get top rating of colleagues with whom user worked for the part N days (username, N days and top number are input parameters). Useful for situations when mentor wants to get feedback about some user and wants to find out with whom user worked most of all.
+
 ## nortal-logo.sh
     ./nortal-logo.sh
 Prints picture of Nortal logo. See blog post about it: [Bash Scripts for Working With Documentation](http://ivanova-irina.blogspot.com.ee/2015/09/bash-scripts-for-working-with.html)

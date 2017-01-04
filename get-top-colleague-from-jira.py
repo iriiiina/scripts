@@ -1,25 +1,24 @@
 #!/usr/bin/env python
 # Author: Irina.Ivanova@protonmail.com, 31.12.2016
-# v1.0
+# v1.1
 
 import requests
-import json
-import operator # Sort dictionary
-import sys # Stop script
+import operator  # Sort dictionary
+import sys  # Stop script
 
-### COLORS for the output
-RED="\033[1;31m"
-CYAN="\033[1;36m"
-YELLOW="\033[1;33m"
-GREEN="\033[1;32m"
-NONE="\033[1;m"
+# COLORS for the output
+RED = "\033[1;31m"
+CYAN = "\033[1;36m"
+YELLOW = "\033[1;33m"
+GREEN = "\033[1;32m"
+NONE = "\033[1;m"
 
-### GET input parameters from user
-user=str(raw_input(CYAN + "\nJIRA username of inspected person: " + NONE))
+# GET input parameters from user
+user = str(raw_input(CYAN + "\nJIRA username of inspected person: " + NONE))
 
-days=raw_input(CYAN + "Number of last days you want to collect statistics about: " + NONE)
+days = raw_input(CYAN + "Number of last days you want to collect statistics about: " + NONE)
 try:
-    days=int(days)
+    days = int(days)
     if days <= 0:
         print(RED + "ERROR: Number of days should be a positive integer" + NONE)
         sys.exit()
@@ -27,9 +26,9 @@ except ValueError:
     print(RED + "ERROR: Number of days should be a positive integer" + NONE)
     sys.exit()
 
-top=raw_input(CYAN + "Max number of colleagues in ratings: " + NONE)
+top = raw_input(CYAN + "Max number of colleagues in ratings: " + NONE)
 try:
-    top=int(top)
+    top = int(top)
     if top <= 0:
         print(RED + "ERROR: Max number of colleagues should be a positive integer" + NONE)
         sys.exit()
@@ -37,35 +36,38 @@ except ValueError:
     print(RED + "ERROR: Max number of colleagues should be a positive integer" + NONE)
     sys.exit()
 
-### GLOBAL variables
-jira="" # put your JIRA API URL here, like https://jira.example.com/rest/api/2
-issuesAPI=jira + "/search?jql=createdDate%20%3E%20startOfDay(-" + str(days) + "d)%20and%20assignee%20was%20" + user + "&startAt="
-testerAPI=jira + "/search?jql=createdDate%20%3E%20startOfDay(-" + str(days) + "d)%20and%20Tester%3D" + user + "&startAt="
-userAPI=jira + "/user?username=" + user
-jiraUser="" # put your JIRA username here
-jiraPass="" # put your JIRA password here
+# GLOBAL variables
+jira = ""  # put your JIRA API URL here, like https://jira.example.com/rest/api/2
+issuesAPI = jira + "/search?jql=createdDate%20%3E%20startOfDay(-" + str(days) \
+            + "d)%20and%20assignee%20was%20" + user + "&startAt="
+testerAPI = jira + "/search?jql=createdDate%20%3E%20startOfDay(-" + str(days) \
+            + "d)%20and%20Tester%3D" + user + "&startAt="
+userAPI = jira + "/user?username=" + user
+jiraUser = ""  # put your JIRA username here
+jiraPass = ""  # put your JIRA password here
 
-issuesByAssignee=[]
-testersByAssignee={}
-creatorsByAssignee={}
-commentatorsByAssignee={}
+issuesByAssignee = []
+testersByAssignee = {}
+creatorsByAssignee = {}
+commentatorsByAssignee = {}
 
-issuesByTester=[]
-creatorsByTester={}
-commentatorsByTester={}
+issuesByTester = []
+creatorsByTester = {}
+commentatorsByTester = {}
 
-testersIssues=[]
-creatorsIssues=[]
-commentatorsIssues=[]
+testersIssues = []
+creatorsIssues = []
+commentatorsIssues = []
 
-### FUNCTIONS
+
+# FUNCTIONS
 def getIssuesByAssignee(startAtValue):
-    "Get all issues from JIRA where user was an assignee. NB! Recursive function!"
+    """Get all issues from JIRA where user was an assignee. NB! Recursive function!"""
 
-    url=issuesAPI + str(startAtValue)
+    url = issuesAPI + str(startAtValue)
     print("Getting all issues where user " + user + " was an assignee: " + url)
     try:
-        response=requests.get(url, auth=(jiraUser, jiraPass)).json()
+        response = requests.get(url, auth=(jiraUser, jiraPass)).json()
 
         if "errorMessages" in response:
             print(RED + "ERROR: can't get any result about " + user + NONE)
@@ -78,13 +80,14 @@ def getIssuesByAssignee(startAtValue):
     except requests.ConnectionError:
         print(RED + "ERROR: Failed to connect to " + url + NONE)
 
-def getIssuesByTester(startAtValue):
-    "Get all issues from JIRA where user was a tester. NB! Recursive function!"
 
-    url=testerAPI + str(startAtValue)
+def getIssuesByTester(startAtValue):
+    """Get all issues from JIRA where user was a tester. NB! Recursive function!"""
+
+    url = testerAPI + str(startAtValue)
     print("Getting all issues where user " + user + " was a tester: " + url)
     try:
-        response=requests.get(url, auth=(jiraUser, jiraPass)).json()
+        response = requests.get(url, auth=(jiraUser, jiraPass)).json()
 
         if "errorMessages" in response:
             print(RED + "ERROR: can't get any result about " + user + NONE)
@@ -93,93 +96,109 @@ def getIssuesByTester(startAtValue):
             issuesByTester.append(i["id"])
         if response["total"] > response["startAt"] + response["maxResults"]:
             getIssuesByTester(startAtValue + response["maxResults"])
-    except request.ConnectionError:
+    except requests.ConnectionError:
         print(RED + "ERROR: Failed to connect to " + url + NONE)
 
-def getUserName():
-    "Get display name of the inspected user"
 
+def getUserName():
+    """Get display name of the inspected user"""
+
+    name = ""
     try:
-        userName = requests.get(userAPI, auth=(jiraUser, jiraPass)).json()["displayName"]
-    except:
+        name = requests.get(userAPI, auth=(jiraUser, jiraPass)).json()["displayName"]
+    except requests.ConnectionError:
         print(RED + "ERROR: Can't connect to " + userAPI + NONE)
 
-    return userName
+    return name
+
 
 def getRolesFromAssignee():
-    "Get all colleagues in different roles from issues by assignee"
+    """Get all colleagues in different roles from issues by assignee"""
 
     print("Getting people that were involved in previous issues...")
     for i in issuesByAssignee:
+        url = jira + "/issue/" + i
         try:
-            url=jira + "/issue/" + i
-            issue=requests.get(url, auth=(jiraUser, jiraPass)).json()
+            issue = requests.get(url, auth=(jiraUser, jiraPass)).json()
             # Testers. NB! This is custom field and its key may differ
-            if "customfield_14302" in issue["fields"] and not(issue["fields"]["customfield_14302"] is None):
+            if "customfield_14302" in issue["fields"] and not (issue["fields"]["customfield_14302"] is None):
                 testersIssues.append(i)
 
-                if issue["fields"]["customfield_14302"]["displayName"] in testersByAssignee and issue["fields"]["customfield_14302"]["displayName"] != userName:
+                if issue["fields"]["customfield_14302"]["displayName"] in testersByAssignee \
+                        and issue["fields"]["customfield_14302"]["displayName"] != userName:
                     testersByAssignee[issue["fields"]["customfield_14302"]["displayName"]] += 1
-                elif not(issue["fields"]["customfield_14302"]["displayName"] in testersByAssignee) and issue["fields"]["customfield_14302"]["displayName"] != userName:
+                elif not (issue["fields"]["customfield_14302"]["displayName"] in testersByAssignee) \
+                        and issue["fields"]["customfield_14302"]["displayName"] != userName:
                     testersByAssignee[issue["fields"]["customfield_14302"]["displayName"]] = 1
             # Creators
-            if issue["fields"]["creator"]["displayName"] in creatorsByAssignee and issue["fields"]["creator"]["displayName"] != userName:
+            if issue["fields"]["creator"]["displayName"] in creatorsByAssignee \
+                    and issue["fields"]["creator"]["displayName"] != userName:
                 creatorsIssues.append(i)
                 creatorsByAssignee[issue["fields"]["creator"]["displayName"]] += 1
-            elif not(issue["fields"]["creator"]["displayName"] in creatorsByAssignee) and issue["fields"]["creator"]["displayName"] != userName:
+            elif not (issue["fields"]["creator"]["displayName"] in creatorsByAssignee) \
+                    and issue["fields"]["creator"]["displayName"] != userName:
                 creatorsIssues.append(i)
                 creatorsByAssignee[issue["fields"]["creator"]["displayName"]] = 1
             # Commentators
             if "comment" in issue["fields"]:
                 commentatorsIssues.append(i)
                 for c in issue["fields"]["comment"]["comments"]:
-                    if c["author"]["displayName"] in commentatorsByAssignee and c["author"]["displayName"] != userName:
+                    if c["author"]["displayName"] in commentatorsByAssignee \
+                            and c["author"]["displayName"] != userName:
                         commentatorsByAssignee[c["author"]["displayName"]] += 1
-                    elif not(c["author"]["displayName"] in commentatorsByAssignee) and c["author"]["displayName"] != userName:
+                    elif not (c["author"]["displayName"] in commentatorsByAssignee) \
+                            and c["author"]["displayName"] != userName:
                         commentatorsByAssignee[c["author"]["displayName"]] = 1
 
         except requests.ConnectionError:
             print(RED + "ERROR: Failed to connect to " + url + NONE)
 
+
 def getRolesFromTester():
-    "Get all colleagues in different roles from issues by tester"
+    """Get all colleagues in different roles from issues by tester"""
 
     print("Getting people that were involved in previous issues...")
     for i in issuesByTester:
+        url = jira + "/issue/" + i
         try:
-            url=jira + "/issue/" + i
-            issue=requests.get(url, auth=(jiraUser, jiraPass)).json()
+            issue = requests.get(url, auth=(jiraUser, jiraPass)).json()
             # Creators
-            if issue["fields"]["creator"]["displayName"] in creatorsByTester and issue["fields"]["creator"]["displayName"] != userName:
+            if issue["fields"]["creator"]["displayName"] in creatorsByTester \
+                    and issue["fields"]["creator"]["displayName"] != userName:
                 creatorsIssues.append(i)
                 creatorsByTester[issue["fields"]["creator"]["displayName"]] += 1
-            elif not(issue["fields"]["creator"]["displayName"] in creatorsByTester) and issue["fields"]["creator"]["displayName"] != userName:
+            elif not (issue["fields"]["creator"]["displayName"] in creatorsByTester) \
+                    and issue["fields"]["creator"]["displayName"] != userName:
                 creatorsIssues.append(i)
                 creatorsByTester[issue["fields"]["creator"]["displayName"]] = 1
             # Commentators
             if "comment" in issue["fields"]:
                 commentatorsIssues.append(i)
                 for c in issue["fields"]["comment"]["comments"]:
-                    if c["author"]["displayName"] in commentatorsByTester and c["author"]["displayName"] != userName:
+                    if c["author"]["displayName"] in commentatorsByTester \
+                            and c["author"]["displayName"] != userName:
                         commentatorsByTester[c["author"]["displayName"]] += 1
-                    elif not(c["author"]["displayName"] in commentatorsByTester) and c["author"]["displayName"] != userName:
+                    elif not (c["author"]["displayName"] in commentatorsByTester) \
+                            and c["author"]["displayName"] != userName:
                         commentatorsByTester[c["author"]["displayName"]] = 1
 
         except requests.ConnectionError:
             print(RED + "ERROR: Failed to connect to " + url + NONE)
 
+
 def getDevelopers(issues):
-    "Get developers that made commits in issues"
+    """Get developers that made commits in issues"""
 
     print("Getting developers that made commits in previous issues...")
 
-    developers={}
+    developers = {}
 
     for i in issues:
+        # Put your URL here
+        url = "https://jira.example.com/rest/dev-status/1.0/issue/detail?issueId=" \
+              + str(i) + "&applicationType=fecru&dataType=repository"
         try:
-            # Put your URL here
-            url="https://jira.example.com/rest/dev-status/1.0/issue/detail?issueId=" + str(i) + "&applicationType=fecru&dataType=repository"
-            commit=requests.get(url, auth=(jiraUser, jiraPass)).json()
+            commit = requests.get(url, auth=(jiraUser, jiraPass)).json()
 
             if "detail" in commit:
                 for d in commit["detail"]:
@@ -187,7 +206,7 @@ def getDevelopers(issues):
                         for c in r["commits"]:
                             if c["author"]["name"] in developers and c["author"]["name"] != userName:
                                 developers[c["author"]["name"]] += 1
-                            elif not(c["author"]["name"] in developers) and c["author"]["name"] != userName:
+                            elif not (c["author"]["name"] in developers) and c["author"]["name"] != userName:
                                 developers[c["author"]["name"]] = 1
 
         except requests.ConnectionError:
@@ -195,58 +214,62 @@ def getDevelopers(issues):
 
     return developers
 
-def printStatistics(list, name):
-    "Print statistics about top collegues"
+
+def printStatistics(elements, name):
+    """Print statistics about top collegues"""
 
     print(GREEN + "\nTop " + str(top) + name + NONE)
 
-    if len(list) > top:
-        max=top
+    if len(elements) > top:
+        maxRange = top
     else:
-        max=len(list)
+        maxRange = len(elements)
 
-    sortedList=sorted(list.items(), key=operator.itemgetter(1), reverse=True)
+    sortedList = sorted(elements.items(), key=operator.itemgetter(1), reverse=True)
 
-    for i in range(0, max):
+    for i in range(0, maxRange):
         print(GREEN + "\t" + sortedList[i][0].encode("utf-8") + ": " + str(sortedList[i][1]) + NONE)
 
-def generateJqlQuery(list):
-    "Create JQL query of all issues of specific role"
 
-    jql="issuekey%20in%20("
-    first=True
-    for i in list:
+def generateJqlQuery(elements):
+    """Create JQL query of all issues of specific role"""
+
+    jql = "issuekey%20in%20("
+    first = True
+    for i in elements:
         if first:
-            first=False
-            jql+=i
+            first = False
+            jql += i
         else:
-            jql+="%2C%20" + i
+            jql += "%2C%20" + i
     jql += ")"
 
     return jql
 
-def saveHTML(issueKeys, filename):
-    "Save HTML file with redirect to specified JQL search in JIRA"
 
-    file=open(filename + ".html", "w+")
-    file.write("")
-    file.write("<!DOCTYPE html><html><head><meta http-equiv='refresh' content='0; url="
-        + "https://jira.example.com/issues/?jql=" + issueKeys
-        + "' /></head><body></body></html>")
-    file.close()
+def saveHTML(issueKeys, filename):
+    """Save HTML file with redirect to specified JQL search in JIRA"""
+
+    f = open(filename + ".html", "w+")
+    f.write("")
+    f.write("<!DOCTYPE html><html><head><meta http-equiv='refresh' content='0; url="
+            + "https://jira.example.com/issues/?jql=" + issueKeys
+            + "' /></head><body></body></html>")
+    f.close()
 
     print(YELLOW + "See file " + filename + ".html for detailed information" + NONE)
 
-### START the script
-print "\nStarting to collect data about " + user + " in JIRA..."
+
+# START the script
+print("\nStarting to collect data about " + user + " in JIRA...")
 getIssuesByAssignee(0)
-userName=getUserName()
+userName = getUserName()
 getRolesFromAssignee()
 getIssuesByTester(0)
 getRolesFromTester()
 
-developersByAssignee=getDevelopers(issuesByAssignee)
-developersByTester=getDevelopers(issuesByTester)
+developersByAssignee = getDevelopers(issuesByAssignee)
+developersByTester = getDevelopers(issuesByTester)
 
 print("\n\tSTATISTICS")
 printStatistics(testersByAssignee, " Testers in issues, where user was an assignee: ")
@@ -264,4 +287,4 @@ printStatistics(developersByTester, " Developers in issues, where user is a test
 # saveHTML(generateJqlQuery(commentatorsIssues), "issues-of-commentators")
 print("\n")
 
-sys.stdout.write('\a') # Terminal Bell
+sys.stdout.write("\a")  # Terminal Bell

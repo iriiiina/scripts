@@ -31,7 +31,7 @@ function verifyArguments() {
   fi
 }
 
-// Set your own servers and their shortnames here
+# Set your own servers and their shortnames here
 function setHost() {
   case $server in
     "short-name")  host="username@host"
@@ -48,7 +48,7 @@ function setHost() {
   fi
 }
 
-// To set fixed directory for downloaded files change dot "." to fixed directory path
+# To set fixed directory for downloaded files change dot "." to fixed directory path
 function downloadFile() {
   scp $host:~/$file .
 }

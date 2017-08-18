@@ -1,6 +1,6 @@
 # Collection of Bash Scripts for Mac OS
 
-All scripts work on Mac OS El Capitan 10.11.5 (and most likely in UNIX terminals).
+All scripts are used on Mac OS Sierra 10.12.6 (most likely they are also working on previous Mac OS versions and on UNIX OS's).
 
 ## bug.sh
     ./bug.sh

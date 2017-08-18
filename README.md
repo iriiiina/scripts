@@ -50,6 +50,10 @@ Opens all applications that are required for my daily work. As I don't use compu
     ./open-last-specification.sh [text_in_file_title]
 Finds file in specific directory by name and opens last modified version. See blog post about it: [Bash Scripts for Working With Documentation](http://ivanova-irina.blogspot.com.ee/2015/09/bash-scripts-for-working-with.html)
 
+## quit-apps-for-work.sh
+    ./quit-apps-for-work.sh
+Quits all applications that are required for my daily work, because I don't want to run some work-specific apps after work hours are over.
+
 ## rename-log-files.sh
     ./rename-log-files.sh
 Rename log files: module.log.31.12.2015 -> module.log.2015.12.31. It was used to change format of the date from dd.MM.yyyy to yyyy.MM.dd to fix file sorting by name.

@@ -6,7 +6,7 @@
 
 path="/Applications"
 
-apps=("Calendar" "Fleep" "Mail" "Notes" "Reminders" "Safari" "Skype" "OneDrive" "Docker")
+apps=("Calendar" "Mail" "Notes" "Reminders" "Safari" "Skype" "Docker" "Microsoft/Teams" "Telegram")
 
 for item in ${apps[*]}; do
   open "$path/$item.app"

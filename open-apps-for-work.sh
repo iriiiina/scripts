@@ -2,12 +2,10 @@
 
 # Irina Ivanova, Irina.Ivanova@protonmail.com
 # Open all applications needed for work
-# v0.1, 29.01.2016
+# v0.3, 19.11.2019
 
-path="/Applications"
-
-apps=("Calendar" "Mail" "Notes" "Reminders" "Safari" "Skype" "Docker" "Microsoft/Teams" "Telegram" "Slack")
+apps=("/System/Applications/Calendar" "/System/Applications/Notes" "/System/Applications/Reminders" "/System/Applications/Mail" "/Applications/Safari" "/Applications/Skype" "/Applications/Docker" "/Applications/Microsoft/Teams" "/Applications/Telegram" "/Applications/Rocket.Chat")
 
 for item in ${apps[*]}; do
-  open "$path/$item.app"
+  open "$item.app"
 done
